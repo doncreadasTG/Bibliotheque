@@ -6,16 +6,16 @@ public class TestBibliothèque {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Livre l1 = new Livre("Math", "Antonio", "Ed/Cavani", 225);
-		Livre l2 = new Livre("Math", "Credo", "Ed/Cavani", 301);
-		Livre l3 = new Livre("Phys", "Antonio", "Ed/Cavani", 591);
+		Livre l1 = new Livre("Math", "Antonio", "Ed/Ronaldo, 225);
+		Livre l2 = new Livre("Math", "Credo", "Ed/Ronaldo", 301);
+		Livre l3 = new Livre("Phys", "Antonio", "Ed/Ronaldo", 591);
 		Livre l4 = new Livre("Math", "Credo", "Ed/Victoire", 421);
 		Livre l5 = new Livre("Sciences Européennes", "Antonio", "Ed/Charlene", 651);
 		Livre l6 = new Livre("Sciences de L'Administration", "Antonio", "Ed/Victoire", 333);
-		Livre l7 = new Livre("Informatique I", "Komlanvi", "Ed/Cavani", 211);
+		Livre l7 = new Livre("Informatique I", "Komlanvi", "Ed/Ronaldo", 211);
 		Livre l8 = new Livre("Informatique II", "Komlanvi", "Ed/Charlene", 254);
-		Livre l9 = new Livre("Informatique III", "Komlanvi", "Ed/Cavani", 280);
-		Livre l10 = new Livre("Informatique IV", "Komlanvi", "Ed/Cavani", 309);
+		Livre l9 = new Livre("Informatique III", "Komlanvi", "Ed/Ronaldo", 280);
+		Livre l10 = new Livre("Informatique IV", "Komlanvi", "Ed/Ronaldo", 309);
 		
 //		System.out.println(l1.toString());
 		
