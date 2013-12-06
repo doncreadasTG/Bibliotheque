@@ -1,0 +1,148 @@
+package cours3_4.TD3;
+
+
+public class Bibliothèque {
+
+	//1) Les variables
+	private String nom, adresse;
+	private int max;
+	private Livre[] tableau;
+	
+	Bibliothèque(String nom, String adresse, int max){
+		this.nom = nom;
+		this.adresse = adresse;
+		if(max <= 0){
+			throw new IllegalArgumentException();
+		}else{
+			this.max = max;
+		}
+		tableau = new Livre[max];
+	}
+
+	//2) les Accesseurs et les mutateurs
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public int getMax() {
+		return max;
+	}
+
+	public void setMax(int max) {
+		if(max <= 0) throw new IllegalArgumentException();
+		this.max = max;
+	}
+
+	public Livre[] getTableau() {
+		return tableau;
+	}
+
+	public void setTableau(Livre[] tableau) {
+		this.tableau = tableau;
+	}
+	
+	//3) Methode permettant d'afficher les livres
+	public void afficherLesLivres(){
+		for(int i = 0; i < max; i++){
+			if(tableau[i] != null){
+			System.out.println(tableau[i].toString());
+			System.out.println();
+			}
+		}
+	}
+	
+	//4) Methode permettant d'ajouter un livre à la bibliothèque
+	public void ajouterLeLivre(Livre livre){
+		int i = 0;
+		while(i < max){
+			if(tableau[i] == null){
+				tableau[i] = new Livre(livre);
+				break;
+			}
+			if(i == max-1) System.out.println("Il n'y a plus de place dans la bibliothèque.");
+			i++;
+		}
+	}
+	
+	//5) Méthode permettant de retirer un livre
+	public void retirerLeLivre(String titre, String auteur){
+		Livre livre = null;
+		int c = 0;
+		for(int i = 0; i < max; i++){
+			if(tableau[i] == null) continue;
+			if(tableau[i].getTitre().equals(titre) && tableau[i].getAuteur().equals(auteur)) {
+				c++;
+                livre = new Livre(tableau[i]);
+				tableau[i] = null;
+				for(int j = i+1; j < max; j++){
+					if(tableau[i] == null) continue;
+					tableau[i] = new Livre(tableau[j]);//Probleme (NullPointerExcepton)
+					tableau[j] = null;
+					i++;
+				}
+				break;
+			}
+		}
+		if(c != 0) System.out.println("Vous venez de retirer un livre: \n" +livre.toString());
+	}
+	
+	//6) Méthode permettant d'éliminer les doublons
+	public void supprimerDoublons(){
+		for(int i = 0; i < max-1; i++){
+			if(tableau[i] == null) continue;
+			int c = 1;
+			for(int j = i+1; j < max; j++){
+				if(tableau[j] == null) continue;
+				if(tableau[i].equals(tableau[j])) c++;//Probleme (NullPointerExcepton)
+				if(c == 2){
+					tableau[j] = null;
+					c--;
+				}
+			}
+		}
+	}
+	
+	//7) Méthode qui prend comme argument une bibliothèque et affiche
+	// à l'écran les livres présents dans les deux bibliothèque
+	public void livresCommuns(Bibliothèque b){
+		for(int i = 0; i < tableau.length; i++){
+			for(int j = 0; j < b.getTableau().length; j++){
+				if(tableau[i].equals(b.getTableau()[j])){
+					System.out.println(tableau[i].toString());
+				}
+			}
+		}
+	}
+	
+	//8) Méthode qui permet de tirer les livres de la bibliothèque par auteur
+	public void livresDeLAuteur(String auteur){
+		int c = 0;
+		System.out.println("Les livres de " +auteur+ " sont: ");
+		for(int i = 0; i < tableau.length; i++){
+			if(tableau[i] == null) continue;
+			if(tableau[i].getAuteur().equals(auteur)){
+				System.out.println(tableau[i].toString());
+//				System.out.println();
+				c++;
+			}
+		}
+		if(c == 0) System.out.println("Il n'y a pas de livre de cet auteur.");
+	}
+
+	public String toString(){
+		return "Bibliothèque " +this.getNom()+ " de " +this.getMax()+ " places " +"sise " +this.getAdresse()+ "\n";
+	}
+	
+}
