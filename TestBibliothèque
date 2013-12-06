@@ -1,6 +1,6 @@
 package cours3_4.TD3;
 
-public class InterfaceBibliothèque {
+public class TestBibliothèque {
 
 	/**
 	 * @param args
