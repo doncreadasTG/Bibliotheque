@@ -1,0 +1,49 @@
+package cours3_4.TD3;
+
+public class InterfaceBibliothèque {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Livre l1 = new Livre("Math", "Antonio", "Ed/Cavani", 225);
+		Livre l2 = new Livre("Math", "Credo", "Ed/Cavani", 301);
+		Livre l3 = new Livre("Phys", "Antonio", "Ed/Cavani", 591);
+		Livre l4 = new Livre("Math", "Credo", "Ed/Victoire", 421);
+		Livre l5 = new Livre("Sciences Européennes", "Antonio", "Ed/Charlene", 651);
+		Livre l6 = new Livre("Sciences de L'Administration", "Antonio", "Ed/Victoire", 333);
+		Livre l7 = new Livre("Informatique I", "Komlanvi", "Ed/Cavani", 211);
+		Livre l8 = new Livre("Informatique II", "Komlanvi", "Ed/Charlene", 254);
+		Livre l9 = new Livre("Informatique III", "Komlanvi", "Ed/Cavani", 280);
+		Livre l10 = new Livre("Informatique IV", "Komlanvi", "Ed/Cavani", 309);
+		
+//		System.out.println(l1.toString());
+		
+		Bibliothèque biblio = new Bibliothèque("Amegbleame", "Avenue Calixte, 58", 15);
+		biblio.ajouterLeLivre(l9);
+		biblio.ajouterLeLivre(l2);
+		biblio.ajouterLeLivre(l3);
+		biblio.ajouterLeLivre(l7);
+		biblio.ajouterLeLivre(l4);
+		biblio.ajouterLeLivre(l5);
+		biblio.ajouterLeLivre(l10);
+		biblio.ajouterLeLivre(l1);
+		biblio.ajouterLeLivre(l6);
+		biblio.ajouterLeLivre(l8);
+		biblio.ajouterLeLivre(l2);
+		biblio.ajouterLeLivre(l7);
+		biblio.ajouterLeLivre(l5);
+		biblio.ajouterLeLivre(l4);
+		biblio.ajouterLeLivre(l1);
+		
+		System.out.println(biblio.toString());
+		
+		biblio.supprimerDoublons();
+		
+		biblio.retirerLeLivre("Math", "Antonio");
+		biblio.afficherLesLivres();
+		biblio.livresDeLAuteur("Antonio");
+		biblio.ajouterLeLivre(l1);
+	}
+
+}
